@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "mars_rovers_dellan"
-  s.version = "1.0.2"
+  s.version = "1.0.3"
   s.author = "Dellan Muchengapadare"
   s.email = "mactunechy@gmail.com"
   s.homepage = "https://github.com/mactunechy/mars_rovers"

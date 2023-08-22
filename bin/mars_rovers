@@ -2,10 +2,6 @@
 
 require_relative "../lib/mars_rovers/rover_station"
 
-puts ""
-puts ""
-puts "\e[34m🪐🪐Add Rovers to the Plateau🪐🪐\e[0m"
-
 max_grid_x = ARGV.shift
 max_grid_y = ARGV.shift
 
@@ -14,7 +10,20 @@ if !max_grid_x || !max_grid_x
   max_grid_y = 5
 end
 
-rover_station = MarsRovers::RoverStation.new(max_grid_x.to_i, max_grid_y.to_i)
+max_grid_x = max_grid_x.to_i
+max_grid_y = max_grid_y.to_i
+
+if max_grid_x <= 0 || max_grid_y <= 0
+  puts "\e[31mInvalid max grid coordinates)\e[0m"
+  exit(1)
+end
+
+puts ""
+puts ""
+puts "\e[34m🪐🪐Add Rovers to the Plateau🪐🪐\e[0m"
+puts "grid size (#{max_grid_x}, #{max_grid_y})"
+
+rover_station = MarsRovers::RoverStation.new(max_grid_x, max_grid_y)
 
 loop do
   puts ""
