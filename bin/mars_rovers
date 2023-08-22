@@ -1,0 +1,57 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/mars_rovers/rover_station"
+
+puts ""
+puts ""
+puts "\e[34m🪐🪐Add Rovers to the Plateau🪐🪐\e[0m"
+
+max_grid_x = ARGV.shift
+max_grid_y = ARGV.shift
+
+if !max_grid_x || !max_grid_x
+  max_grid_x = 5
+  max_grid_y = 5
+end
+
+rover_station = MarsRovers::RoverStation.new(max_grid_x, max_grid_y)
+
+loop do
+  puts ""
+  puts "Add a rover:"
+  puts ""
+  puts "What is the initial position of the rover? ('print' to print out rovers)"
+
+  answer = gets.chomp
+
+  if answer.downcase == "quit" || answer.downcase == "exit"
+    break
+  end
+
+  if answer.downcase == "print"
+    puts ""
+    puts rover_station
+    next
+  end
+
+  begin
+    rover = rover_station.create_rover(answer)
+    puts ""
+    puts ""
+    puts "Enter the movement commands"
+    commands = gets.chomp
+
+    begin
+      rover_station.execute_commands(rover, commands)
+      puts ""
+      puts rover_station
+      puts ""
+
+      puts "\e[32m ✅ Rover added successfully\e[0m"
+    rescue => exception
+      puts "\e[33m#{exception}\e[0m"
+    end
+  rescue => exception
+    puts "\e[33mInvalid position, Try again ('quit' to exit )\e[0m"
+  end
+end
