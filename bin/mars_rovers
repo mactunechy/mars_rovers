@@ -14,7 +14,7 @@ if !max_grid_x || !max_grid_x
   max_grid_y = 5
 end
 
-rover_station = MarsRovers::RoverStation.new(max_grid_x, max_grid_y)
+rover_station = MarsRovers::RoverStation.new(max_grid_x.to_i, max_grid_y.to_i)
 
 loop do
   puts ""
