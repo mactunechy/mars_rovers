@@ -4,7 +4,7 @@
  ### Coordinates can not be of negative value.
  Coordinates can not be of negative value" means that the x and y coordinates of the rovers' positions on the Martian surface cannot have negative values. In other words, the rovers cannot be positioned at locations with negative x or y values. This assumption helps define the boundaries of the area in which the rovers can move and explore on Mars.
 
- ### Grid max position can to be negative
+ ### Grid max position can not be negative
   indicates that the maximum values for the x and y coordinates of the grid (or plateau) on which the Mars rovers operate cannot be negative. This ensures that the grid's boundary is defined in a way that avoids negative coordinates and establishes a non-negative coordinate space for the rovers to navigate within. It's a constraint that helps maintain the validity of the grid's dimensions and prevents rovers from going beyond its specified boundaries.
 
   ### Grid size defaults to (5,5)
